@@ -4,6 +4,6 @@ class User < ApplicationRecord
     validates :username, presence: true, length: { minimum: 6 }, uniqueness: true
     validates :password, presence: true, length: { in: 6..20 }
 
-    has_many :posts
-    has_many :comments
+    has_many :posts, dependent: :destroy
+    has_many :comments, dependent: :destroy
 end
